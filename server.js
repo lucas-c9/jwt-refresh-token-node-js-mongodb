@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dbConfig = require("./app/config/db.config");
-
+const charactersRouter = require('./app/routes/characters.routes');
 const app = express();
 
 let corsOptions = {
@@ -32,12 +32,14 @@ db.mongoose
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to pilarTecno application." });
+  res.json({ message: "Welcome to pilarTecno application.",
+    student: "Lucas Cortés"});
 });
 
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
+require("./app/routes/characters.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

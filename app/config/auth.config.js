@@ -1,5 +1,6 @@
+require('dotenv').config();
 module.exports = {
-  secret: "bezkoder-secret-key",
+  secret: process.env.AUTHORIZATION_SECRET,
   jwtExpiration: 3600,         // 1 hour
   jwtRefreshExpiration: 86400, // 24 hours
 
